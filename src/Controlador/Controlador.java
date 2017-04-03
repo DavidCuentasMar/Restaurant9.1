@@ -34,6 +34,15 @@ public class Controlador {
     public void GenerarMenu(JPanel platosPanel, JPanel bebidasPanel, JPanel postresPanel) {
         archivo.GenerarMenu(platosPanel,bebidasPanel,postresPanel);
     }
+
+    public int getPriceProducto(String name) {
+       return archivo.getPriceProducto(name);
+    }
+
+    public int getPricePlato(String name) {
+        return archivo.getPricePlato(name);
+    }
+
     
     
 }

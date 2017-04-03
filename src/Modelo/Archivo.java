@@ -5,10 +5,15 @@
  */
 package Modelo;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.StringTokenizer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -23,6 +28,29 @@ public class Archivo {
         formarMenu(platosSrc, platosPanel, bebidasPanel, postresPanel);
         String productosSrc ="archivos/productos.txt";
         formarMenu(productosSrc , platosPanel, bebidasPanel, postresPanel);
+    }
+    public int getPriceProducto(String name) {
+        String cadena;
+        String archivo="archivos/productos.txt";
+        try(FileReader f = new FileReader("archivos/productos.txt")){
+            BufferedReader b = new BufferedReader(f);            
+            while((cadena = b.readLine())!=null) {
+                StringTokenizer st = new StringTokenizer(cadena,",");
+                while(st.hasMoreElements()){
+                    String token=st.nextElement().toString();
+                    token=st.nextElement().toString();
+                    if (name.equals(token)) {
+                        token=st.nextElement().toString();
+                        token=st.nextElement().toString();
+                        return Integer.parseInt(token);                        
+                    }                    
+                }
+            }
+            b.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Archivo.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+        return -666;
     }
 
     private void formarMenu(String ruta, JPanel platosPanel, JPanel bebidasPanel, JPanel postresPanel) {
@@ -78,6 +106,27 @@ public class Archivo {
         }catch(FileNotFoundException ex){
             
         }
+    }
+
+    public int getPricePlato(String name) {
+        String cadena;
+        try(FileReader f = new FileReader("archivos/platos.txt")){
+            BufferedReader b = new BufferedReader(f);            
+            while((cadena = b.readLine())!=null) {
+                StringTokenizer st = new StringTokenizer(cadena,",");
+                while(st.hasMoreElements()){
+                    String token=st.nextElement().toString();                    
+                    if (name.equals(token)) {
+                        token=st.nextElement().toString();
+                        return Integer.parseInt(token);                        
+                    }                    
+                }
+            }
+            b.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Archivo.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+        return -666;
     }
 }
 
