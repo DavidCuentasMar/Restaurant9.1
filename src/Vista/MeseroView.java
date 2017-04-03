@@ -177,6 +177,11 @@ public class MeseroView extends javax.swing.JFrame {
         jScrollPane2.setViewportView(TablePedidos);
 
         jButton1.setText("Realizar Pedido");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Eliminar Producto");
 
@@ -240,8 +245,7 @@ public class MeseroView extends javax.swing.JFrame {
 
     private void showMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showMenuBtnActionPerformed
         if (generalView.getFt()==true) {
-            controlador.GenerarMenu(platosPanel,bebidasPanel,postresPanel);
-            generalView.setFt(false);
+            controlador.GenerarMenu(platosPanel,bebidasPanel,postresPanel);           
             menuView.setVisible(true);
             menuView.setSize(600, 400);           
             Component[] component = platosPanel.getComponents();
@@ -252,10 +256,33 @@ public class MeseroView extends javax.swing.JFrame {
                     }                   
                 });
             }
+            Component[] component2 = bebidasPanel.getComponents();
+            for (Component component1 : component2) {
+                component1.addMouseListener(new java.awt.event.MouseAdapter() {
+                    public void mouseClicked(java.awt.event.MouseEvent e) {
+                        addToTable(e.getComponent().getName(), "Bebida");
+                    }
+                });
+            }
+            Component[] component3 = postresPanel.getComponents();
+            for (Component component1 : component3) {
+                component1.addMouseListener(new java.awt.event.MouseAdapter() {
+                    public void mouseClicked(java.awt.event.MouseEvent e) {
+                        addToTable(e.getComponent().getName(), "Postre");
+                    }
+                });
+            }
+            generalView.setFt(false);
+        }else{
+            menuView.setVisible(true);
         }
         
         
     }//GEN-LAST:event_showMenuBtnActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
     private void addToTable(String name, String type) {
         DefaultTableModel model = (DefaultTableModel) TablePedidos.getModel();
         int precio = -666;
