@@ -1,5 +1,0 @@
-Corriente de Pollo,7500,Arroz+Lenteja+Pollo
-Corriente de Carne,7500,Arroz+Lenteja+Carne
-Hot Dog,3000,Pan+Salchicha
-Arepa de huevo,2500,Arepa+Huevo
-Arepa de carne,2500,Arepa+Carne

@@ -24,7 +24,7 @@ public class MeseroView extends javax.swing.JFrame {
     public void setGeneralView(GeneralView generalView) {
         this.generalView = generalView;
     }
-    boolean ft;
+
     
     /**
      * Creates new form MeseroView
@@ -203,7 +203,7 @@ public class MeseroView extends javax.swing.JFrame {
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(showMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -235,7 +235,7 @@ public class MeseroView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -244,6 +244,12 @@ public class MeseroView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void showMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showMenuBtnActionPerformed
+        if (generalView.getFt()==false) {
+            platosPanel.removeAll();
+            bebidasPanel.removeAll();
+            postresPanel.removeAll();
+            controlador.setFtGeneralView(true);
+        }   
         if (generalView.getFt()==true) {
             controlador.GenerarMenu(platosPanel,bebidasPanel,postresPanel);           
             menuView.setVisible(true);
@@ -281,16 +287,14 @@ public class MeseroView extends javax.swing.JFrame {
     }//GEN-LAST:event_showMenuBtnActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        DefaultTableModel model = (DefaultTableModel) TablePedidos.getModel();
+        if (model.getRowCount() != 0) {
+            
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
     private void addToTable(String name, String type) {
         DefaultTableModel model = (DefaultTableModel) TablePedidos.getModel();
-        int precio = -666;
-        if (type.equals("Bebida")||type.equals("Postre")) {
-             precio = controlador.getPriceProducto(name);
-        }else{
-             precio = controlador.getPricePlato(name);
-        }       
+        int precio = controlador.getPrice(name);           
         model.addRow(new Object[]{name,type,precio+""});
     }
     /**

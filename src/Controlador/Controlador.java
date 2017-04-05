@@ -7,9 +7,12 @@ package Controlador;
 
 import Modelo.Archivo;
 import Modelo.Restaurant91;
+import static Modelo.Restaurant91.generalView;
 import Vista.GeneralView;
 import Vista.MeseroView;
+import Vista.StockView;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 
 /**
  *
@@ -17,12 +20,12 @@ import javax.swing.JPanel;
  */
 public class Controlador {
     Restaurant91 restaurant;
+    GeneralView generalview;
     Archivo archivo = new Archivo();
-
+    
     public void setRestaurant(Restaurant91 restaurant) {
         this.restaurant = restaurant;
     }
-
     public void setMeseroViewToGeneralView(MeseroView meseroView,GeneralView generalView) {
         generalView.setMeseroView(meseroView);
     }
@@ -34,14 +37,29 @@ public class Controlador {
     public void GenerarMenu(JPanel platosPanel, JPanel bebidasPanel, JPanel postresPanel) {
         archivo.GenerarMenu(platosPanel,bebidasPanel,postresPanel);
     }
-
-    public int getPriceProducto(String name) {
-       return archivo.getPriceProducto(name);
+    public void ActualizarMenu(JPanel platosPanel, JPanel bebidasPanel, JPanel postresPanel) {
+        archivo.GenerarMenu(platosPanel,bebidasPanel,postresPanel);
     }
 
-    public int getPricePlato(String name) {
-        return archivo.getPricePlato(name);
+    public int getPrice(String name) {
+       return archivo.getPrice(name);
     }
+
+    public void setStockViewToGeneralView(StockView stockView, GeneralView generalView) {
+        generalView.setStockView(stockView);
+    }
+
+    public void nuevoProducto(JTable Table, int i) {
+        archivo.nuevoProducto(Table,i);
+    }
+    public void setGeneralviewToControlador(GeneralView generalview) {
+        this.generalview = generalview;
+    }
+    public void setFtGeneralView(boolean ft){
+        generalView.setFt(ft);
+    }
+
+    
 
     
     

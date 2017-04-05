@@ -11,13 +11,18 @@ package Vista;
  */
 public class GeneralView extends javax.swing.JFrame {
     public static MeseroView meseroView;
-    boolean ft=true;
+    public static StockView stockView;
+    private boolean ft=true;
 
     public void setFt(boolean ft) {
         this.ft = ft;
     }
     public boolean getFt() {
         return ft;
+    }
+
+    public static void setStockView(StockView stockView) {
+        GeneralView.stockView = stockView;
     }
     
     public void setMeseroView(MeseroView meseroView) {
@@ -106,7 +111,7 @@ public class GeneralView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-
+        stockView.setVisible(true);
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
