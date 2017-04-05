@@ -1,2 +1,8 @@
-Postre,Sopa,1,1500
-Bebida,Agua,1,5000
+Postre,Brownie,1,3000
+Bebida,Mango,1,3500
+Postre,Biscotti,1,12000
+Ingrediente,Arroz,1,0
+Ingrediente,Carne,1,0
+Ingrediente,Pollo,1,0
+Ingrediente,Brocoli,1,0
+Ingrediente,Coliflor,1,0

@@ -59,6 +59,14 @@ public class Controlador {
         generalView.setFt(ft);
     }
 
+    public void agregarBotonesPĺatoView(JPanel botonesPanel) {
+        archivo.agregarBotonesPlatoView(botonesPanel);
+    }
+
+    public void nuevoPlato(JPanel botonesPanel, String name, String price) {
+        archivo.nuevoPlato(botonesPanel, name, price);
+    }
+
     
 
     

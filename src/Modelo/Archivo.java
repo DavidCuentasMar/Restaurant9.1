@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import java.awt.Component;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -19,7 +20,7 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.JToggleButton;
 import vista.Configuracion;
 
 /**
@@ -100,6 +101,41 @@ public class Archivo {
         } catch (IOException ex) {
             Logger.getLogger(Configuracion.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public void agregarBotonesPlatoView(JPanel botonesPanel) {
+        botonesPanel.removeAll();
+         File archivo = new File("archivos/productos.txt");        
+        try(Scanner lector = new Scanner(archivo)){                
+                while(lector.hasNextLine()){                   
+                    String linea = lector.nextLine();
+                    String[] datos = linea.split(",");
+                    String name = datos[1];
+                    if (datos[0].equals("Ingrediente")) {
+                        //System.out.println(name);
+                        JToggleButton JRB = new JToggleButton(name);        
+                        botonesPanel.add(JRB);
+                        JRB.setName(name);
+                        botonesPanel.add(JRB);                        
+                    }                   
+                }   
+                botonesPanel.updateUI();
+            }catch(FileNotFoundException ex){            
+            }       
+    }
+
+    public void nuevoPlato(JPanel botonesPanel, String name, String price) {
+        if (!name.equals("")) {
+            Component[] component = botonesPanel.getComponents();
+            for (Component component1 : component) {
+                if (component1 instanceof JToggleButton){
+                    if (((JToggleButton)component1).isSelected()) {
+                       System.out.println(((JToggleButton)component1).getName());                        
+                    }
+                }
+            }
+        }
+
     }
 
     

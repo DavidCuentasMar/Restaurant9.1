@@ -6,6 +6,7 @@
 package Vista;
 import Controlador.Controlador;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -39,6 +40,15 @@ public class StockView extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Table = new javax.swing.JTable();
         BtnSend = new javax.swing.JButton();
+        agregarPlatoView = new javax.swing.JFrame();
+        jButton1 = new javax.swing.JButton();
+        botonesPanel = new javax.swing.JPanel();
+        priceTxt = new javax.swing.JTextField();
+        platoName = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        btnCrearPlato = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -126,6 +136,87 @@ public class StockView extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BtnSend)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jButton1.setText("Finalizar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        botonesPanel.setLayout(new java.awt.GridLayout(0, 3));
+
+        platoName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                platoNameMouseClicked(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("BankGothic Md BT", 1, 24)); // NOI18N
+        jLabel6.setText("Creación de Platos");
+
+        btnCrearPlato.setText("Crear Plato");
+        btnCrearPlato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearPlatoActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Precio:");
+
+        jLabel8.setText("Nombre:");
+
+        javax.swing.GroupLayout agregarPlatoViewLayout = new javax.swing.GroupLayout(agregarPlatoView.getContentPane());
+        agregarPlatoView.getContentPane().setLayout(agregarPlatoViewLayout);
+        agregarPlatoViewLayout.setHorizontalGroup(
+            agregarPlatoViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(agregarPlatoViewLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(agregarPlatoViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(agregarPlatoViewLayout.createSequentialGroup()
+                        .addComponent(btnCrearPlato, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1))
+                    .addGroup(agregarPlatoViewLayout.createSequentialGroup()
+                        .addGroup(agregarPlatoViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(agregarPlatoViewLayout.createSequentialGroup()
+                                .addGroup(agregarPlatoViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(agregarPlatoViewLayout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addGap(11, 11, 11))
+                                    .addComponent(jLabel8))
+                                .addGap(52, 52, 52)
+                                .addGroup(agregarPlatoViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(priceTxt)
+                                    .addComponent(platoName)))
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(botonesPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        agregarPlatoViewLayout.setVerticalGroup(
+            agregarPlatoViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(agregarPlatoViewLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6)
+                .addGap(18, 18, 18)
+                .addGroup(agregarPlatoViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(agregarPlatoViewLayout.createSequentialGroup()
+                        .addComponent(platoName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(priceTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(agregarPlatoViewLayout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel7)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botonesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(agregarPlatoViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCrearPlato)
+                    .addComponent(jButton1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -253,8 +344,42 @@ public class StockView extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnSendActionPerformed
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        // TODO add your handling code here:
+        agregarPlatoView.setVisible(true);
+        controlador.agregarBotonesPĺatoView(botonesPanel);
     }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+//        this.dispose();
+//        General g = new General();
+//        g.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void platoNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_platoNameMouseClicked
+//        info.setText("");
+    }//GEN-LAST:event_platoNameMouseClicked
+
+    private void btnCrearPlatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearPlatoActionPerformed
+        String name = platoName.getText();
+        String price = priceTxt.getText();
+        controlador.nuevoPlato(botonesPanel,name,price);
+//        if (!name.equals("")) {
+//            int price = Integer.parseInt(pricetxt.getText());
+//            int x = panel.getComponentCount();
+//            for (int i = 0; i < LBotones.size(); i++) {
+//                if (LBotones.get(i).isSelected()) {
+//                    controlador.AgregarLista(LBotones.get(i).getName());
+//                }
+//            }
+//            controlador.CrearArchivoPlatos(name, price);
+//            panel.getComponents();
+//            info.setText("Plato creado!");
+//            PlatoName.setText("");
+//            pricetxt.setText("");
+//        }else{
+//            info.setText("[Nombre Obligatorio]");
+//        }
+
+    }//GEN-LAST:event_btnCrearPlatoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -298,12 +423,21 @@ public class StockView extends javax.swing.JFrame {
     private javax.swing.JTable Table;
     private javax.swing.JComboBox<String> TipoCombox;
     private javax.swing.JTextField TxtConfig;
+    private javax.swing.JFrame agregarPlatoView;
     private javax.swing.JFrame agregarProductoView;
+    private javax.swing.JPanel botonesPanel;
+    private javax.swing.JButton btnCrearPlato;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField platoName;
+    private javax.swing.JTextField priceTxt;
     // End of variables declaration//GEN-END:variables
 }
