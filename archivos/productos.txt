@@ -6,3 +6,6 @@ Ingrediente,Carne,1,0
 Ingrediente,Pollo,1,0
 Ingrediente,Brocoli,1,0
 Ingrediente,Coliflor,1,0
+Bebida,Vodka,1,85000
+Postre,Chocorramo,1,3000
+

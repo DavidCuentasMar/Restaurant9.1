@@ -21,7 +21,6 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JToggleButton;
-import vista.Configuracion;
 
 /**
  *
@@ -41,12 +40,8 @@ public class Archivo {
                 linea = lector.nextLine();
                 st = new StringTokenizer(linea,",");
                 token = st.nextElement().toString();
-                if (token.equals("Plato")) {                    
-                    token = st.nextElement().toString();
-                    c = token+" $"+st.nextElement().toString();
-                    JButton B = new JButton(c);
-                    platosPanel.add(B);
-                    B.setName(token);                    
+                if (token.equals("Plato")) { 
+                 
                 }
                 if (token.equals("Bebida")) {
                     token = st.nextElement().toString();
@@ -99,25 +94,29 @@ public class Archivo {
                 w.newLine();
             w.close();
         } catch (IOException ex) {
-            Logger.getLogger(Configuracion.class.getName()).log(Level.SEVERE, null, ex);
+
         }
     }
 
     public void agregarBotonesPlatoView(JPanel botonesPanel) {
         botonesPanel.removeAll();
-         File archivo = new File("archivos/productos.txt");        
-        try(Scanner lector = new Scanner(archivo)){                
-                while(lector.hasNextLine()){                   
+        File archivo = new File("archivos/productos.txt");        
+        try(Scanner lector = new Scanner(archivo)){            
+                while(lector.hasNextLine()){
                     String linea = lector.nextLine();
-                    String[] datos = linea.split(",");
-                    String name = datos[1];
-                    if (datos[0].equals("Ingrediente")) {
-                        //System.out.println(name);
-                        JToggleButton JRB = new JToggleButton(name);        
-                        botonesPanel.add(JRB);
-                        JRB.setName(name);
-                        botonesPanel.add(JRB);                        
-                    }                   
+                    StringTokenizer st = new StringTokenizer(linea,",");
+                    while(st.hasMoreElements()){
+                        String token=st.nextElement().toString();
+                        if (token.equals("Ingrediente")) {
+                            token=st.nextElement().toString();
+                            JToggleButton JRB = new JToggleButton(token);        
+                            botonesPanel.add(JRB);
+                            JRB.setName(token);
+                            botonesPanel.add(JRB);                        
+                        }
+                                       
+                    }
+                                  
                 }   
                 botonesPanel.updateUI();
             }catch(FileNotFoundException ex){            
@@ -136,6 +135,10 @@ public class Archivo {
             }
         }
 
+    }
+
+    private void addPlatoToMenu(String token) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

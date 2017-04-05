@@ -244,13 +244,9 @@ public class MeseroView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void showMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showMenuBtnActionPerformed
-        if (generalView.getFt()==false) {
             platosPanel.removeAll();
             bebidasPanel.removeAll();
             postresPanel.removeAll();
-            controlador.setFtGeneralView(true);
-        }   
-        if (generalView.getFt()==true) {
             controlador.GenerarMenu(platosPanel,bebidasPanel,postresPanel);           
             menuView.setVisible(true);
             menuView.setSize(600, 400);           
@@ -279,9 +275,7 @@ public class MeseroView extends javax.swing.JFrame {
                 });
             }
             generalView.setFt(false);
-        }else{
-            menuView.setVisible(true);
-        }
+
         
         
     }//GEN-LAST:event_showMenuBtnActionPerformed
