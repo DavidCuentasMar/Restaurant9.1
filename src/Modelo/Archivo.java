@@ -29,38 +29,58 @@ import javax.swing.JToggleButton;
 public class Archivo {
     
     public void GenerarMenu(JPanel platosPanel, JPanel bebidasPanel, JPanel postresPanel){
-        String token = "";
-        String name="";
-        String c="";
-        String linea="";
-        StringTokenizer st = new StringTokenizer(linea,",");
-        File archivo = new File("archivos/productos.txt");
-        try(Scanner lector = new Scanner(archivo)){
-            while(lector.hasNextLine()){
-                linea = lector.nextLine();
-                st = new StringTokenizer(linea,",");
-                token = st.nextElement().toString();
-                if (token.equals("Plato")) { 
-                 
-                }
-                if (token.equals("Bebida")) {
-                    token = st.nextElement().toString();
-                    c = token+" $"+st.nextElement().toString();
-                    JButton B = new JButton(c);
-                    bebidasPanel.add(B);
-                    B.setName(token);                               
-                }
-                if (token.equals("Postre")) {
-                    token = st.nextElement().toString();
-                    c = token+" $"+st.nextElement().toString();
-                    JButton B = new JButton(c);
-                    postresPanel.add(B);
-                    B.setName(token);                            
-                }                                                                                                
-            }                                   
-        }catch(FileNotFoundException ex){
-            
-        }
+        File archivo = new File("archivos/productos.txt");        
+        try(Scanner lector = new Scanner(archivo)){            
+                while(lector.hasNextLine()){
+                    String linea = lector.nextLine();
+                    StringTokenizer st = new StringTokenizer(linea,",");
+                    while(st.hasMoreElements()){
+                        String token=st.nextElement().toString();
+                        if (token.equals("Bebida")) {
+                            token=st.nextElement().toString();
+                            JButton B = new JButton(token);
+                            bebidasPanel.add(B);
+                            B.setName(token);                      
+                        }
+                                       
+                    }
+                                  
+                }   
+                bebidasPanel.updateUI();
+            }catch(FileNotFoundException ex){            
+            }
+//        String token = "";
+//        String name="";
+//        String c="";
+//        String linea="";
+//        StringTokenizer st = new StringTokenizer(linea,",");
+//        File archivo = new File("archivos/productos.txt");
+//        try(Scanner lector = new Scanner(archivo)){
+//            while(lector.hasNextLine()){
+//                linea = lector.nextLine();
+//                st = new StringTokenizer(linea,",");
+//                token = st.nextElement().toString();
+//                if (token.equals("Plato")) { 
+//                 
+//                }
+//                if (token.equals("Bebida")) {
+//                    token = st.nextElement().toString();
+//                    c = token+" $"+st.nextElement().toString();
+//                    JButton B = new JButton(c);
+//                    bebidasPanel.add(B);
+//                    B.setName(token);                               
+//                }
+//                if (token.equals("Postre")) {
+//                    token = st.nextElement().toString();
+//                    c = token+" $"+st.nextElement().toString();
+//                    JButton B = new JButton(c);
+//                    postresPanel.add(B);
+//                    B.setName(token);                            
+//                }                                                                                                
+//            }                                   
+//        }catch(FileNotFoundException ex){
+//            
+//        }
     }
     public int getPrice(String name) {
         String cadena;

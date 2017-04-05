@@ -9,3 +9,5 @@ Ingrediente,Coliflor,1,0
 Bebida,Vodka,1,85000
 Postre,Chocorramo,1,3000
 
+Bebida,Agua,1,1500
+Bebida,Cerveza,1,5000

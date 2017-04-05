@@ -344,7 +344,7 @@ public class StockView extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnSendActionPerformed
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        
+      
         controlador.agregarBotonesPlatoView(botonesPanel);
         agregarPlatoView.setVisible(true);
     }//GEN-LAST:event_jLabel4MouseClicked

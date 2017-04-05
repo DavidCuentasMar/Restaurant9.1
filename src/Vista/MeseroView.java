@@ -247,9 +247,8 @@ public class MeseroView extends javax.swing.JFrame {
             platosPanel.removeAll();
             bebidasPanel.removeAll();
             postresPanel.removeAll();
-            controlador.GenerarMenu(platosPanel,bebidasPanel,postresPanel);           
-            menuView.setVisible(true);
-            menuView.setSize(600, 400);           
+//        if (generalView.getFt()==true) {
+            controlador.GenerarMenu(platosPanel,bebidasPanel,postresPanel);
             Component[] component = platosPanel.getComponents();
             for (Component component1 : component) {
                 component1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -261,20 +260,23 @@ public class MeseroView extends javax.swing.JFrame {
             Component[] component2 = bebidasPanel.getComponents();
             for (Component component1 : component2) {
                 component1.addMouseListener(new java.awt.event.MouseAdapter() {
-                    public void mouseClicked(java.awt.event.MouseEvent e) {
-                        addToTable(e.getComponent().getName(), "Bebida");
-                    }
+                public void mouseClicked(java.awt.event.MouseEvent e) {
+                    addToTable(e.getComponent().getName(), "Bebida");
+                }
                 });
             }
             Component[] component3 = postresPanel.getComponents();
             for (Component component1 : component3) {
                 component1.addMouseListener(new java.awt.event.MouseAdapter() {
-                    public void mouseClicked(java.awt.event.MouseEvent e) {
-                        addToTable(e.getComponent().getName(), "Postre");
-                    }
+                public void mouseClicked(java.awt.event.MouseEvent e) {
+                    addToTable(e.getComponent().getName(), "Postre");
+                }
                 });
             }
-            generalView.setFt(false);
+            generalView.setFt(false);            
+//        }
+        menuView.setVisible(true);
+        menuView.setSize(500, 500);            
 
         
         
