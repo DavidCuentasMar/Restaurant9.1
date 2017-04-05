@@ -11,3 +11,5 @@ Postre,Chocorramo,1,3000
 
 Bebida,Agua,1,1500
 Bebida,Cerveza,1,5000
+Postre,Sopa,1,1000
+Bebida,Sopa,1,1000

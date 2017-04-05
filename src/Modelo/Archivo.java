@@ -42,6 +42,19 @@ public class Archivo {
                             bebidasPanel.add(B);
                             B.setName(token);                      
                         }
+                        if (token.equals("Postre")) {
+                            token=st.nextElement().toString();
+                            JButton B = new JButton(token);
+                            postresPanel.add(B);
+                            B.setName(token);                      
+                        }
+                        if (token.equals("Plato")) {
+                            //addplatoToView
+                            token=st.nextElement().toString();
+                            JButton B = new JButton(token);
+                            postresPanel.add(B);
+                            B.setName(token);                      
+                        }
                                        
                     }
                                   

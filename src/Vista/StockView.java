@@ -362,24 +362,7 @@ public class StockView extends javax.swing.JFrame {
     private void btnCrearPlatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearPlatoActionPerformed
         String name = platoName.getText();
         String price = priceTxt.getText();
-        controlador.nuevoPlato(botonesPanel,name,price);
-//        if (!name.equals("")) {
-//            int price = Integer.parseInt(pricetxt.getText());
-//            int x = panel.getComponentCount();
-//            for (int i = 0; i < LBotones.size(); i++) {
-//                if (LBotones.get(i).isSelected()) {
-//                    controlador.AgregarLista(LBotones.get(i).getName());
-//                }
-//            }
-//            controlador.CrearArchivoPlatos(name, price);
-//            panel.getComponents();
-//            info.setText("Plato creado!");
-//            PlatoName.setText("");
-//            pricetxt.setText("");
-//        }else{
-//            info.setText("[Nombre Obligatorio]");
-//        }
-
+        controlador.nuevoPlato(botonesPanel,name,price); // identidico los ingredientes aqui es donde debo crear el archivo
     }//GEN-LAST:event_btnCrearPlatoActionPerformed
 
     /**
